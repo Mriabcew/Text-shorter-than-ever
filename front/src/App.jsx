@@ -11,7 +11,7 @@ function App() {
     sentences: 0,
     readingTime: 0,
   });
-  const [shorteningPercentage, setShorteningPercentage] = useState(5);
+  const [shorteningPercentage, setShorteningPercentage] = useState(50);
 
   
   const handleSliderChange = (event) => {
@@ -20,7 +20,7 @@ function App() {
     };
 
   const handleSummarize = async () => {
-    console.log({ text: inputText });
+    console.log({ text: inputText, percent: shorteningPercentage });
     try {
       // Tutaj możesz wywołać funkcję, która wykonuje zapytanie do API
       // Przyjmuję, że otrzymasz odpowiedź w formie obiektu response
@@ -29,7 +29,7 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: inputText }),
+        body: JSON.stringify({ text: inputText,percent: shorteningPercentage }),
       });
 
       if (!response.ok) {
@@ -55,7 +55,6 @@ function App() {
   };
 
   const handleClean = () => {
-    console.log("Before Clean:", inputText, summaryText, tableData);
     setInputText('');
     setSummaryText('');
     setTableData({
@@ -63,7 +62,6 @@ function App() {
       sentences: 0,
       readingTime: 0,
     });
-    console.log("After Clean:", inputText, summaryText, tableData);
   };
   
 
@@ -101,7 +99,7 @@ function App() {
             </table>
             <div style={{ marginTop: '1em' }}>
               <label for="volume">Percentage of shortening</label>
-                <input type="range" id="volume" name="volume" min="50" max="100" value={shorteningPercentage} onChange={handleSliderChange} />
+                <input type="range" id="volume" name="volume" min="50" max="80" value={shorteningPercentage} onChange={handleSliderChange} />
 
                 <p>Selected percentage: {shorteningPercentage}%</p>
             </div>

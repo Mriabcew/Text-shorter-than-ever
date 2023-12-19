@@ -68,7 +68,7 @@ class TextSummarizer:
 
         # Step 1 - Read text anc split it
         sentences = self.read_article(article)
-        top_n = int(floor(len(sentences) * int(100 - percent) * 0.01))
+        top_n = int(floor(len(sentences) * (100 - int(percent)) * 0.01))
         if top_n == 0:
             top_n = 1
 
