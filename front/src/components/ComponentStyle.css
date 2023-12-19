@@ -1,0 +1,38 @@
+#TopBar{
+    background-color: rgb(0, 143, 252);
+}
+
+.inputContainer {
+    width: 100%;
+  }
+  
+  .textInput {
+    width: 100%;
+    box-sizing: border-box; /* Zapewnia, że szerokość textarea obejmuje padding */
+    padding: 8px;
+    margin-top: 4px;
+  }
+
+textarea {
+    height: 500px;
+    width: 500px;
+    resize: none;
+    overflow-y: scroll;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: rgb(0, 143, 252);;
+  }
+  
